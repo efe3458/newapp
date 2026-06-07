@@ -1,0 +1,37 @@
+EuroBridge — Static Marketing/Storefront Website
+=================================================
+
+WHAT THIS IS
+------------
+A self-contained, production-ready static website (no build step, no server
+required). Same folder layout you shared:
+
+  eurobridge-site/
+    index.html      <- Home / storefront landing
+    album.html      <- Product catalog ("album") page
+    css/styles.css  <- All styling
+    js/main.js      <- Language switcher, cart counter, flash countdown, filters
+    images/         <- Logo + SVG product/hero artwork (no external requests)
+
+HOW TO PREVIEW LOCALLY
+----------------------
+Just double-click index.html — it opens in any browser. Everything works
+offline (images are inline SVG, no CDNs).
+
+HOW TO PUBLISH (pick one, all free)
+-----------------------------------
+1) Netlify  : drag the whole 'eurobridge-site' folder onto app.netlify.com/drop
+2) Vercel   : `vercel` in this folder (or import via dashboard)
+3) GitHub Pages: push folder to a repo, enable Pages on the main branch
+4) Cloudflare Pages: connect repo or upload the folder
+5) Any host : upload via FTP — it is plain HTML/CSS/JS
+
+NOTES
+-----
+- 27 EU languages are wired into the language switcher (settings dropdown,
+  auto-detected from the browser, remembered via localStorage).
+- This is the marketing/storefront shell. The dynamic app (auth, real catalog,
+  cart, Stripe checkout, warehouse, shipping, tracking) connects to Supabase as
+  described in the EuroBridge blueprint pages in Notion.
+- Replace the SVG placeholders in /images with real product photography and
+  point product cards at your Supabase product feed when ready.

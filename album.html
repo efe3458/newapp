@@ -1,0 +1,74 @@
+/* EuroBridge - front-end interactions (vanilla JS, no build step) */
+(function () {
+  'use strict';
+
+  /* ---------- Language switcher ---------- */
+  var LANGS = [
+    ['en','English'],['de','Deutsch'],['fr','Fran\u00e7ais'],['es','Espa\u00f1ol'],
+    ['it','Italiano'],['pt','Portugu\u00eas'],['nl','Nederlands'],['pl','Polski'],
+    ['ro','Rom\u00e2n\u0103'],['cs','\u010ce\u0161tina'],['sk','Sloven\u010dina'],['hu','Magyar'],
+    ['hr','Hrvatski'],['sl','Sloven\u0161\u010dina'],['sr','Srpski'],['bs','Bosanski'],
+    ['sq','Shqip'],['el','\u0395\u03bb\u03bb\u03b7\u03bd\u03b9\u03ba\u03ac'],['bg','\u0411\u044a\u043b\u0433\u0430\u0440\u0441\u043a\u0438'],['tr','T\u00fcrk\u00e7e'],
+    ['sv','Svenska'],['no','Norsk'],['da','Dansk'],['fi','Suomi'],
+    ['et','Eesti'],['lv','Latvie\u0161u'],['lt','Lietuvi\u0173']
+  ];
+  var langBtn = document.getElementById('langBtn');
+  var langMenu = document.getElementById('langMenu');
+  var langLabel = document.getElementById('langLabel');
+  if (langMenu) {
+    LANGS.forEach(function (l) {
+      var b = document.createElement('button');
+      b.textContent = l[1];
+      b.setAttribute('data-code', l[0]);
+      b.onclick = function () {
+        langLabel.textContent = l[0].toUpperCase();
+        document.documentElement.lang = l[0];
+        localStorage.setItem('eb_lang', l[0]);
+        langMenu.classList.remove('open');
+      };
+      langMenu.appendChild(b);
+    });
+    langBtn.onclick = function (e) { e.stopPropagation(); langMenu.classList.toggle('open'); };
+    document.addEventListener('click', function () { langMenu.classList.remove('open'); });
+    // restore + auto-detect
+    var saved = localStorage.getItem('eb_lang');
+    var detected = (navigator.language || 'en').slice(0, 2);
+    var code = saved || (LANGS.some(function (l) { return l[0] === detected; }) ? detected : 'en');
+    langLabel.textContent = code.toUpperCase();
+    document.documentElement.lang = code;
+  }
+
+  /* ---------- Cart counter ---------- */
+  var count = parseInt(localStorage.getItem('eb_cart') || '0', 10);
+  function renderCart() {
+    var el = document.getElementById('cartCount');
+    if (el) { el.textContent = count; el.style.display = count ? 'flex' : 'none'; }
+  }
+  renderCart();
+  document.addEventListener('click', function (e) {
+    var add = e.target.closest('[data-add]');
+    if (add) {
+      e.stopPropagation();
+      count++; localStorage.setItem('eb_cart', count); renderCart();
+      add.textContent = 'Added \u2713';
+      setTimeout(function () { add.textContent = 'Add to Cart'; }, 1200);
+    }
+    var save = e.target.closest('[data-save]');
+    if (save) { e.stopPropagation(); save.textContent = save.textContent === '\u2661' ? '\u2665' : '\u2661'; }
+  });
+
+  /* ---------- Flash deal countdown ---------- */
+  var end = Date.now() + 1000 * 60 * 60 * 8 + 1000 * 60 * 42; // ~8h42m
+  function tick() {
+    var d = Math.max(0, end - Date.now());
+    var h = Math.floor(d / 3.6e6), m = Math.floor((d % 3.6e6) / 6e4), s = Math.floor((d % 6e4) / 1e3);
+    set('h', h); set('m', m); set('s', s);
+  }
+  function set(id, v) { var e = document.getElementById('cd-' + id); if (e) e.firstChild.nodeValue = (v < 10 ? '0' : '') + v; }
+  if (document.getElementById('cd-h')) { tick(); setInterval(tick, 1000); }
+
+  /* ---------- Catalog filter chips ---------- */
+  document.querySelectorAll('.chip').forEach(function (c) {
+    c.onclick = function () { c.classList.toggle('active'); };
+  });
+})();

@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>EuroBridge — Shop China, delivered to Europe</title>
+<meta name="description" content="Buy from Taobao, Weidian, 1688 & Tmall. We receive, inspect, consolidate and ship to your door across Europe.">
+<link rel="icon" href="images/favicon.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+<header class="site">
+  <div class="container nav">
+    <a class="logo" href="index.html"><img class="mark" src="images/logo.svg" alt="EuroBridge"> EuroBridge</a>
+    <nav class="nav-links">
+      <a href="album.html">Shop</a>
+      <a href="#how">How it works</a>
+      <a href="#shipping">Shipping</a>
+      <a href="#">Track</a>
+    </nav>
+    <label class="search">
+      <span>🔍</span>
+      <input type="search" placeholder="Search products, brands, stores…">
+    </label>
+    <div class="nav-actions">
+      <div class="lang">
+        <button class="lang-btn" id="langBtn">🌐 <span id="langLabel">EN</span> ▾</button>
+        <div class="lang-menu" id="langMenu"></div>
+      </div>
+      <button class="icon-btn" title="Saved">♡</button>
+      <button class="icon-btn" title="Cart">🛒<span class="cart-count" id="cartCount" style="display:none">0</span></button>
+      <a class="btn btn-primary" href="#">Sign in</a>
+    </div>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="container hero-grid">
+    <div>
+      <span class="pill pill-new">⚡ New · 27 European languages</span>
+      <h1>Shop China.<br><span class="grad">Delivered to Europe.</span></h1>
+      <p>Buy from Taobao, Weidian, 1688 and Tmall. We purchase for you, receive it in our warehouse, inspect &amp; consolidate, then ship to your door — with transparent fees and live tracking.</p>
+      <div class="hero-cta">
+        <a class="btn btn-primary" href="album.html">Start shopping</a>
+        <a class="btn btn-ghost" href="#how">How it works</a>
+      </div>
+      <div class="hero-trust">
+        <div><b>180k+</b><span>Parcels forwarded</span></div>
+        <div><b>27</b><span>EU languages</span></div>
+        <div><b>4.8★</b><span>Avg. rating</span></div>
+      </div>
+    </div>
+    <div class="hero-art">
+      <img src="images/hero.svg" alt="EuroBridge forwarding">
+    </div>
+  </div>
+</section>
+
+<section class="block">
+  <div class="container">
+    <div class="sec-head"><div><h2>Shop by category</h2></div><a href="album.html">View all</a></div>
+    <div class="cats">
+      <div class="cat"><span class="emoji">👟</span><span>Sneakers</span></div>
+      <div class="cat"><span class="emoji">👗</span><span>Fashion</span></div>
+      <div class="cat"><span class="emoji">📱</span><span>Tech</span></div>
+      <div class="cat"><span class="emoji">🎮</span><span>Gaming</span></div>
+      <div class="cat"><span class="emoji">🏠</span><span>Home</span></div>
+      <div class="cat"><span class="emoji">💄</span><span>Beauty</span></div>
+      <div class="cat"><span class="emoji">⌚</span><span>Watches</span></div>
+      <div class="cat"><span class="emoji">🎯</span><span>Hobby</span></div>
+      <div class="cat"><span class="emoji">🎒</span><span>Bags</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="block" style="padding-top:0">
+  <div class="container">
+    <div class="flash">
+      <div class="ft">
+        <span class="emoji" style="font-size:30px">⚡</span>
+        <div><h3>Flash Deals</h3><span style="font-size:13px;opacity:.85">Ends in</span></div>
+      </div>
+      <div class="timer">
+        <div class="t" id="cd-h">08<span>HRS</span></div>
+        <div class="t" id="cd-m">42<span>MIN</span></div>
+        <div class="t" id="cd-s">00<span>SEC</span></div>
+      </div>
+      <a class="btn btn-primary" style="background:#fff;color:var(--brand)" href="album.html">Shop deals</a>
+    </div>
+  </div>
+</section>
+
+<section class="block" style="padding-top:0">
+  <div class="container">
+    <div class="sec-head"><div><h2>Trending now</h2><p>What Europe is buying this week</p></div><a href="album.html">See more</a></div>
+    <div class="grid" id="trending"></div>
+  </div>
+</section>
+
+<section id="how" class="block" style="background:var(--bg-soft)">
+  <div class="container">
+    <div class="sec-head"><div><h2>How EuroBridge works</h2><p>From checkout to your doorstep</p></div></div>
+    <div class="steps">
+      <div class="step"><div class="n">1</div><h4>Order &amp; pay</h4><p>Add products to cart and pay the item cost. We handle the Chinese marketplace purchase for you.</p></div>
+      <div class="step"><div class="n">2</div><h4>Warehouse intake</h4><p>Items arrive at our hub. We photograph, weigh and measure every parcel — optional QC inspection.</p></div>
+      <div class="step"><div class="n">3</div><h4>Consolidate &amp; ship</h4><p>Combine multiple orders into one box, pick a shipping method, then pay the exact shipping cost.</p></div>
+      <div class="step"><div class="n">4</div><h4>Track to your door</h4><p>Live status from transit to customs to delivery — with push notifications in your language.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="block">
+  <div class="container">
+    <div class="sec-head"><div><h2>New arrivals</h2></div><a href="album.html">Browse catalog</a></div>
+    <div class="grid" id="arrivals"></div>
+  </div>
+</section>
+
+<section id="shipping" class="block" style="background:var(--bg-soft)">
+  <div class="container">
+    <div class="sec-head"><div><h2>Shipping methods</h2><p>Transparent rates — you choose speed vs. cost</p></div></div>
+    <div class="ship">
+      <div class="opt"><div class="ic">✈️</div><h4>Air Express</h4><div class="eta">5–8 days</div><div class="cost">from €41</div></div>
+      <div class="opt"><div class="ic">🛫</div><h4>Economy Air</h4><div class="eta">10–16 days</div><div class="cost">from €25</div></div>
+      <div class="opt"><div class="ic">🚆</div><h4>Rail</h4><div class="eta">18–25 days</div><div class="cost">from €18</div></div>
+      <div class="opt"><div class="ic">🚢</div><h4>Sea Freight</h4><div class="eta">35–55 days</div><div class="cost">from €12</div></div>
+    </div>
+  </div>
+</section>
+
+<section class="block">
+  <div class="container">
+    <div class="cta">
+      <h2>Your European address in China</h2>
+      <p>Create a free warehouse code, shop any store, and let us bridge the last 8,000 km.</p>
+      <a class="btn btn-primary" href="album.html">Get your warehouse code</a>
+    </div>
+  </div>
+</section>
+
+<footer class="site">
+  <div class="container">
+    <div class="foot-grid">
+      <div>
+        <a class="logo" href="index.html"><img class="mark" src="images/logo.svg" alt=""> EuroBridge</a>
+        <p style="margin-top:12px;font-size:14px;max-width:280px">The modern proxy-buying &amp; package-forwarding platform built for Europe.</p>
+      </div>
+      <div><h5>Company</h5><ul><li><a href="#">About</a></li><li><a href="#">Careers</a></li><li><a href="#">Blog</a></li></ul></div>
+      <div><h5>Help</h5><ul><li><a href="#">How it works</a></li><li><a href="#">Shipping &amp; fees</a></li><li><a href="#">Track order</a></li><li><a href="#">Contact</a></li></ul></div>
+      <div><h5>Legal</h5><ul><li><a href="#">Terms</a></li><li><a href="#">Privacy (GDPR)</a></li><li><a href="#">VAT &amp; customs</a></li></ul></div>
+    </div>
+    <div class="foot-bottom"><span>© 2026 EuroBridge. All rights reserved.</span><span>Made in Europe 🇪🇺 · EN / DE / FR / ES / IT / + 22 more</span></div>
+  </div>
+</footer>
+
+<script src="js/main.js"></script>
+<script>
+/* Demo product feed (replace with Supabase data) */
+var PRODUCTS=[
+  {n:'Retro Chunky Sneakers — Unisex',img:'p1',now:'€38.90',was:'€59.00',r:'4.8 (1.2k)',tag:'sale'},
+  {n:'Oversized Cargo Tech Jacket',img:'p2',now:'€52.00',was:'',r:'4.7 (840)',tag:'new'},
+  {n:'Wireless ANC Earbuds Pro',img:'p3',now:'€24.50',was:'€39.00',r:'4.6 (3.1k)',tag:'hot'},
+  {n:'Mechanical Keyboard 75% RGB',img:'p4',now:'€61.00',was:'',r:'4.9 (520)',tag:'new'},
+  {n:'Minimal Leather Crossbody Bag',img:'p5',now:'€33.00',was:'€48.00',r:'4.5 (670)',tag:'sale'},
+  {n:'Smart Fitness Watch S9',img:'p6',now:'€29.90',was:'',r:'4.4 (2.0k)',tag:'hot'},
+  {n:'Streetwear Hoodie — Heavyweight',img:'p7',now:'€27.00',was:'€35.00',r:'4.8 (1.5k)',tag:'sale'},
+  {n:'Desk Mat XXL + Wireless Pad',img:'p8',now:'€19.90',was:'',r:'4.7 (410)',tag:'new'}
+];
+function tagHtml(t){return t==='sale'?'<span class="pill pill-sale">SALE</span>':t==='new'?'<span class="pill pill-new">NEW</span>':'<span class="pill pill-hot">🔥 HOT</span>';}
+function card(p){return '<article class="card"><div class="thumb"><img src="images/'+p.img+'.svg" alt=""><div class="tags">'+tagHtml(p.tag)+'</div><button class="save" data-save>♡</button></div><div class="body"><div class="name">'+p.n+'</div><div class="rate">★ '+p.r+'</div><div class="price"><span class="now">'+p.now+'</span>'+(p.was?'<span class="was">'+p.was+'</span>':'')+'</div><button class="btn btn-ghost btn-block add" data-add>Add to Cart</button></div></article>';}
+document.getElementById('trending').innerHTML=PRODUCTS.slice(0,4).map(card).join('');
+document.getElementById('arrivals').innerHTML=PRODUCTS.slice(4,8).map(card).join('');
+</script>
+</body>
+</html>
